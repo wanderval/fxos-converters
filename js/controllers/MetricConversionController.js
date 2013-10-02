@@ -51,7 +51,26 @@ conversionApp.controller('MetricConversionController', function($scope) {
 			$scope.celsius = '';
 		}
 	};
+	
+	$scope.celsiusToKelvin = function() {
+		if($scope.celsius) {
+			$scope.kelvin = $scope.celsius + 273;
+		}
+		else {
+			$scope.kelvin = '';
+		}
+	};
 
+	$scope.fahrenheitToKelvin = function() {
+		if($scope.fahrenheit) {
+			$scope.celsius = ($scope.fahrenheit - 32) * (5/9);
+			$scope.kelvin = $scope.celsius + 273;
+			$scope.celsius = '';
+		}
+		else {
+			$scope.kelvin = '';
+		}
+	};
 	$scope.setKmToMile = function() {
 		$scope.isKmToMile = $scope.setCurrent();
 	};
@@ -71,7 +90,14 @@ conversionApp.controller('MetricConversionController', function($scope) {
 	$scope.setKelvinToCelsius = function() {
 		$scope.isKelvinToCelsius = $scope.setCurrent();
 	};
-
+	
+	$scope.setCelsiusToKelvin = function() {
+		$scope.isCelsiusToKelvin = $scope.setCurrent();
+	};
+	$scope.setFahrenheitToKelvin = function() {
+		$scope.isFahrenheitToKelvin = $scope.setCurrent();
+	};
+	
 	$scope.resetFields = function() {
 		$scope.km = '';
 		$scope.mile = '';
@@ -89,7 +115,9 @@ conversionApp.controller('MetricConversionController', function($scope) {
 		$scope.isCelsiusToFahrenheit =  false;
 		$scope.isFahrenheitToCelsius =  false;
 		$scope.isKelvinToCelsius =  false;
-
+		$scope.isCelsiusToKelvin = false;
+		$scope.isFahrenheitToKelvin = false;
+		
 		return true;
 	};
 
